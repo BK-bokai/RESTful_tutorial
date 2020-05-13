@@ -42,7 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            // 'driver' => 'token',
+            'driver' => 'passport', //<-修改這裡
             'provider' => 'users',
             'hash' => false,
         ],
