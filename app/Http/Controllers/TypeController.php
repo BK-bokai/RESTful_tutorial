@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TypeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -37,14 +42,14 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required|max:50|unique:types,name',
             'sort' => 'nullable|integer',
         ]);
 
-        if(empty($request->sort)){
+        if (empty($request->sort)) {
             $max = Type::get()->max('sort');
-            $request['sort']= $max+1;
+            $request['sort'] = $max + 1;
         }
 
         $type = Type::create($request->all());
@@ -59,7 +64,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return response($type,Response::HTTP_OK);
+        return response($type, Response::HTTP_OK);
     }
 
     /**
