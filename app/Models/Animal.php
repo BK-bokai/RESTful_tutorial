@@ -34,4 +34,20 @@ class Animal extends Model
         $diff = Carbon::now()->diff($this->birthday);
         return "{$diff->y}歲{$diff->m}月";
     }
+
+    /**
+     * 取得動物的刊登人
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    /**
+     * 多對多關聯animal與user
+     */
+    public function like()
+    {
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
+    }
 }

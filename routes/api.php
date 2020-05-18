@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('animal', 'AnimalController');
 Route::apiResource('type', 'TypeController');
+
+// 這裡可以用 like 辨識
+Route::post('animal/{animal}/like', 'AnimalController@like');

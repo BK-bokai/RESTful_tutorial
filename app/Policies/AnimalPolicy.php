@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Animal;
+use App\Models\Animal;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AnimalPolicy
@@ -13,7 +13,7 @@ class AnimalPolicy
 
     public function before($user, $ability)
     {
-        if ($user->isSuperAdmin()) {
+        if ($user->permission== 'admin') {
             return true;
         }
     }
