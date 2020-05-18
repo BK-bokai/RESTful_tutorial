@@ -120,6 +120,7 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
+        $this->authorize('update', $animal);
         $animal->update($request->all());
         return response($animal, Response::HTTP_OK);
     }
