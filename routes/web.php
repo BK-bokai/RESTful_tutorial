@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// // Route::post('/sort','SortController@selectSort');
+// Route::post('/sort',function(){
+//     $MyArray = [1,2,3,4,5,6,7];
+//     return $MyArray;
+// });

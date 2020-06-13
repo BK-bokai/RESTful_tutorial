@@ -13,12 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::apiResource('animal', 'AnimalController');
-Route::apiResource('type', 'TypeController');
+// Route::apiResource('animal', 'AnimalController');
+// Route::apiResource('type', 'TypeController');
 
 // 這裡可以用 like 辨識
-Route::post('animal/{animal}/like', 'AnimalController@like');
+// Route::post('animal/{animal}/like', 'AnimalController@like');
+
+Route::post('/sort','SortController@selectSort');
+
+Route::post('/findmax','SortController@findMax');
+// Route::post('/findmax',function(){
+//     $MyArray = [1,2,3,4,5,6,7];
+//     return $MyArray;
+// });
